@@ -19,9 +19,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Map<String, bool> _filters = {
     'gluten': false,
-    'lactose ': false,
+    'lactose': false,
     'vegan': false,
-    'vagetarian': false,
+    'vegetarian': false,
   };
 
   List<Meal> _availableMeals = DUMMY_MEALS;
@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         if (_filters['vegan'] && !meal.isVegan) {
           return false;
         }
-        if (_filters['vagetarian'] && !meal.isVegetarian) {
+        if (_filters['vegetarian'] && !meal.isVegetarian) {
           return false;
         }
         return true;
@@ -58,7 +58,9 @@ class _MyAppState extends State<MyApp> {
       });
     } else {
       setState(() {
-        _favoriteMeals.add(DUMMY_MEALS.firstWhere((meal) => meal.id == mealId));
+        _favoriteMeals.add(
+          DUMMY_MEALS.firstWhere((meal) => meal.id == mealId),
+        );
       });
     }
   }
